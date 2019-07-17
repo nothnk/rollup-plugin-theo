@@ -1,5 +1,5 @@
-import fs from "fs";
-import theoModule from "theo";
+const fs = require("fs");
+const theoModule = require("theo");
 
 theoModule.registerFormat(
 	"custom-values.css",
@@ -39,7 +39,7 @@ function convertTokens(input, output, format) {
 		.catch(error => console.log(`Something went wrong: ${error}`));
 }
 
-export default function theo(opts = {}) {
+module.exports = function theo(opts = {}) {
 	if (!opts.input || !opts.output || !opts.format) {
 		throw Error("Input, output and format option must be specified");
 	}
@@ -57,4 +57,4 @@ export default function theo(opts = {}) {
 			}
 		}
 	};
-}
+};
