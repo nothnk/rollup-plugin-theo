@@ -1,19 +1,18 @@
 import babel from 'rollup-plugin-babel';
+import pkg from './package.json';
 
-var pkg = require('./package.json');
-
-export default {
-	input: 'index.js',
-	plugins: [babel()],
-	output: [
-		{
-			format: 'cjs',
-			dest: pkg['main']
-		},
-		{
-			format: 'es',
-			dest: pkg['jsnext:main']
-		}
-	],
-	external: [ 'fs', 'theo' ]
-};
+export default [
+	{
+		input: 'index.js',
+		plugins: [
+			babel({
+				exclude: ['node_modules/**']
+			})
+		],
+		output: [
+			{ file: pkg.main, format: 'cjs' },
+			{ file: pkg.module, format: 'es' }
+		],
+		external: ['path', 'theo'],
+	}
+];

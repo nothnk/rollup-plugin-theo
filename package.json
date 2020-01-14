@@ -4,7 +4,7 @@
 	"author": "Gavin McFarland",
 	"description": "A rollup plugin to transform design tokens using Theo",
 	"main": "dist/rollup-plugin-theo.js",
-	"jsnext:main": "dist/rollup-plugin-theo.mjs",
+	"module": "dist/rollup-plugin-theo.esm.js",
 	"repository": "limitlessloop/rollup-plugin-theo",
 	"scripts": {
 		"build": "rollup -c",
@@ -28,10 +28,10 @@
 		"@babel/register": "^7.4.4",
 		"@babel/preset-env": "^7.5.4",
 		"coffeescript": "^2.3.2",
+		"fs-extra": "^8.1.0",
 		"mocha": "^5.2.0",
 		"rollup": "^1.17.0",
-		"rollup-plugin-babel": "^4.3.3",
-		"rollup-plugin-buble": "^0.19.8"
+		"rollup-plugin-babel": "^4.3.3"
 	},
 	"dependencies": {
 		"theo": "^8.1.3"

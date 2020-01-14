@@ -1,4 +1,5 @@
-import fs from 'fs'
+import fs from 'fs-extra'
+import path from 'path'
 import theoModule from 'theo'
 
 theoModule.registerFormat(
@@ -29,6 +30,7 @@ function convertTokens(input, output, format) {
 			}
 		})
 		.then(filecontent => {
+			fs.ensureDirSync(path.dirname(output))
 			fs.writeFile(output, filecontent, err => {
 				if (err) throw err
 			})
